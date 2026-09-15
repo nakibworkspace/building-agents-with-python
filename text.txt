@@ -1,0 +1,5 @@
+python3 -c "
+from my_agent import Agent
+a = Agent('ollama:llama3.2:latest')                                                                                                                                                                      ╮
+print(a.simple_generate('Say hi in one sentence.'))
+"
