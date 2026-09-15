@@ -13,7 +13,7 @@ from my_agent.utils import extract_json_from_text
 from my_agent.tools import get_tool_schema, execute_tool
 from my_agent.state import AgentState
 from my_agent.memory import Memory
-from my_agent.planner import create_plan, create_atomic_action
+from my_agent.planner import create_plan, create_atomic_action, create_aot_graph, execute_graph
 
 
 class Agent:
@@ -42,7 +42,7 @@ class Agent:
         self.memory = Memory()
 
     # ============================================================
-    # LESSON 01 — implement me!
+    # LESSON 01 — LLM Chat
     # ============================================================
 
     def simple_generate(self, user_input: str) -> str:
@@ -59,7 +59,7 @@ class Agent:
         return self.llm.generate(user_input)
 
     # ============================================================
-    # LESSON 02 — implement me!
+    # LESSON 02 — System Prompt
     # ============================================================
 
     def generate_with_role(self, user_input: str) -> str:
@@ -81,7 +81,7 @@ class Agent:
         return response.strip()
 
     # ============================================================
-    # LESSON 03 — implement me!
+    # LESSON 03 — Structured Output
     # ============================================================
 
     def generate_structured(self, user_input, schema):
@@ -121,7 +121,7 @@ Response (JSON only):"""
         return None
 
     # ============================================================
-    # LESSON 04 — implement me!
+    # LESSON 04 — Planning
     # ============================================================
 
     def decide(self, user_input, choices):
@@ -170,7 +170,7 @@ Response (JSON only):"""
         return None
 
     # ============================================================
-    # LESSON 05 — implement me!
+    # LESSON 05 — Tools
     # ============================================================
 
     def request_tool(self, user_input):
@@ -228,7 +228,7 @@ Response (JSON only):"""
         return execute_tool(tool_call["tool"], tool_call["arguments"])
 
     # ============================================================
-    # LESSON 06 — implement me!
+    # LESSON 06 — Agent Loop
     # ============================================================
 
     def agent_step(self, user_input):
@@ -303,7 +303,7 @@ Response (JSON only):"""
         return results
 
     # ============================================================
-    # LESSON 07 — implement me!
+    # LESSON 07 — Memory
     # ============================================================
 
     def run_with_memory(self, user_input):
@@ -363,7 +363,7 @@ Response (JSON only):"""
         return None
 
     # ============================================================
-    # LESSON 08 — implement me!
+    # LESSON 08 — Planning
     # ============================================================
 
     def create_plan(self, goal):
@@ -410,7 +410,7 @@ Response (JSON only):"""
         return results
 
     # ============================================================
-    # LESSON 09 — implement me!
+    # LESSON 09 — Atomic Actions
     # ============================================================
 
     def create_atomic_action(self, step):
@@ -426,4 +426,38 @@ Response (JSON only):"""
             dict like {"action": "...", "inputs": {...}} or None
         """
         return create_atomic_action(self.llm, step)
+
+    # ============================================================
+    # LESSON 10: Atom of Thought (AoT)
+    # ============================================================
+
+    def create_aot_plan(self, goal):
+        """
+        Generate an AoT (Atom of Thought) execution graph.
+
+        Lesson 10 wrapper.
+
+        Args:
+            goal: the goal to achieve
+
+        Returns:
+            graph dict {"nodes": [...]} or None
+        """
+        return create_aot_graph(self.llm, goal)
+
+    def execute_aot_plan(self, graph):
+        """
+        Execute an AoT graph respecting dependencies.
+
+        Args:
+            graph: a dict with "nodes" key
+
+        Returns:
+            list of execution results
+        """
+        # I'll write this for you — it's a 1-line delegation.
+        def execute_action(action):
+            return f"Executed: {action}"
+
+        return execute_graph(graph, execute_action)
 
