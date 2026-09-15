@@ -51,6 +51,39 @@ L08 was "list of steps in order". L10 captures the actual **structure of work**:
 3. Try a goal where the model **doesn't** produce good dependencies — see the failure mode.
 4. Look at `execute_graph()` in `planner.py` — it's ~25 lines, no magic.
 
-## What's next
+## Output
+```bash
+=== Goal: Write a short blog post comparing Python and JavaScript ===
+Graph nodes:
+  [1] research  depends_on=[]
+  [2] choose  depends_on=['1']
+  [3] write  depends_on=['2']
+  [4] review  depends_on=['3']
+  [5] edit  depends_on=['4']
+  [6] publish  depends_on=['5']
 
-**That's the end of the agent curriculum.** Lessons 11 (evals) and 12 (telemetry) in the reference repo are production-engineering topics: regression tests and observability. Useful, but not part of the agent's core capability.
+Executed 6 nodes:
+  ✓ [1] research  →  Executed: research
+  ✓ [2] choose  →  Executed: choose
+  ✓ [3] write  →  Executed: write
+  ✓ [4] review  →  Executed: review
+  ✓ [5] edit  →  Executed: edit
+  ✓ [6] publish  →  Executed: publish
+
+=== Goal: Plan a healthy weekly meal prep ===
+Graph nodes:
+  [1] plan  depends_on=[]
+  [2] research  depends_on=['1']
+  [3] make  depends_on=['2']
+  [4] shop  depends_on=['3']
+  [5] cook  depends_on=['4']
+  [6] review  depends_on=['5']
+
+Executed 6 nodes:
+  ✓ [1] plan  →  Executed: plan
+  ✓ [2] research  →  Executed: research
+  ✓ [3] make  →  Executed: make
+  ✓ [4] shop  →  Executed: shop
+  ✓ [5] cook  →  Executed: cook
+  ✓ [6] review  →  Executed: review
+```

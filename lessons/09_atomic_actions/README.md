@@ -46,6 +46,21 @@ print(action)                       # inspect — you can edit before running
 3. Try a deliberately vague step: `"do the thing"` — does the model produce a sensible action or hallucinate?
 4. Compare two models: small vs larger models sometimes produce very different action vocabularies.
 
-## What's next
+## Output
+```bash
+Step: 'Define what HTTPS stands for'
+  action: define_https
+  inputs: {'definition': 'Hypertext Transfer Protocol Secure'}
 
-Lesson 10 — Atom of Thought (AoT). The final lesson: instead of a flat ordered list, the plan is a **dependency graph**. Some actions can run in parallel. Some depend on others. That's the difference between L08 (linear plan) and L10 (real planning).
+Step: 'Explain the TLS handshake in simple terms'
+  action: explain_tls_handshake
+  inputs: {'key': 'simple explanation of the TLS handshake process'}
+
+Step: 'Compare HTTPS to HTTP for a beginner'
+  action: compare_https_to_http
+  inputs: {'title': 'Comparison of HTTPS to HTTP for a Beginner'}
+
+Step: 'Write a one-paragraph summary'
+  action: summary
+  inputs: {'text': 'Write a one-paragraph summary'}
+```
