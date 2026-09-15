@@ -36,6 +36,17 @@ Every agent framework under the hood has a "decision" step somewhere. LangGraph 
 3. Make two choices semantically close (`"summarize"` vs `"tldr"`) — does it confuse them?
 4. Pass an empty list — what should happen? What's the safe behavior?
 
-## What's next
+## Output
+```bash
+request: 'Can you summarize this article for me?'  →  summarize_text  → calling summarizer
 
-Lesson 05 — Tool Calling. Same idea as L04 (the model picks), but instead of naming a *concept* it specifies *what function to call and with what arguments*. That's the moment your agent starts having **effects** on the world.
+request: "Translate 'good morning' to French."  →  translate  → calling translator
+
+request: "What's the capital of Bangladesh?"  →  translate  → calling translator
+
+request: 'Tell me about your weekend.'  →  none_of_the_above  → falling back to general chat
+
+request: 'Make this short and concise for me.'  →  none_of_the_above  → falling back to general chat
+
+request: 'Summarize this'  →  summarize_text  → calling summarizer
+```

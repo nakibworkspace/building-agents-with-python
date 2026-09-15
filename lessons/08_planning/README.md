@@ -59,6 +59,41 @@ Same reason `Memory` is in `memory.py` and `tools.py` has tools: small focused m
 3. Goal = "" (empty string) — what happens? Should fail cleanly.
 4. Inspect the plan dict between stages — you can edit it before executing.
 
-## What's next
+## Output
+```bash
+=== Goal: Explain how HTTPS works to a beginner ===
+Plan:
+  1. Step 1: Introduction to HTTPS
+  2. Step 2: How HTTPS Works
+  3. Step 3: Benefits of HTTPS
+  4. Step 4: How to Implement HTTPS
+  5. Step 5: Common HTTPS Scenarios
+  6. Step 6: Troubleshooting HTTPS Issues
 
-Lesson 09 — Atomic Actions. Each step in the plan gets decomposed into the **smallest possible action** with explicit inputs. That's what makes plans safely executable and testable.
+Executed 6 steps. State steps: 6
+
+=== Goal: Plan a small birthday party for a 7-year-old ===
+Plan:
+  1. Plan guest list
+  2. Send out invitations
+  3. Prepare party games
+  4. Order party food
+  5. Decorate party area
+  6. Prepare party favors
+  7. Set up party schedule
+  8. Have party
+  9. Clean up after party
+
+Executed 9 steps. State steps: 15
+
+=== Goal: Compare Python and JavaScript for a new programmer ===
+Plan:
+  1. Step 1: Learn the basics of both languages
+  2. Step 2: Choose a project to work on
+  3. Step 3: Compare the syntax and features of both languages
+  4. Step 4: Evaluate the ecosystem and community support for each language
+  5. Step 5: Consider the job prospects and salary ranges for each language
+  6. Step 6: Make an informed decision based on the comparison and chosen project
+
+Executed 6 steps. State steps: 21
+```

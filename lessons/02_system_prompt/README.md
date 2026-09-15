@@ -27,6 +27,14 @@ It prepends `self.system_prompt` to `user_input` and sends the combined prompt t
 2. Change `agent.system_prompt` mid-session and re-run — output shifts
 3. Make the system prompt contradict itself: `"You are a Python expert. Always respond in iambic pentameter."` — what wins?
 
-## What's next
+## Output
+```bash
+--- simple_generate (no role) ---
+An API, or Application Programming Interface, is a set of defined rules and protocols that allows different software systems to communicate with each other. It enables data exchange between systems, allowing them to share information, perform tasks, and provide services to each other.
 
-Lesson 03 — Structured Output. Same model, but now you **constrain the shape** of what comes back (JSON), retry on failure, and turn prose into parseable data.
+--- generate_with_role (default persona) ---
+An API, or Application Programming Interface, is a way for different software systems to communicate with each other.
+
+--- generate_with_role (5-year-old persona) ---
+API is like a special messenger!
+```

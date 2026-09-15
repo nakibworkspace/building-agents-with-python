@@ -45,6 +45,25 @@ execute_tool_call(spec)   →  294
 3. Ask "Add 100 and 200" — model should request calculator with add
 4. Manually call `execute_tool_call({"tool": "calculator", "arguments": {"a": 10, "b": 5, "operation": "divide"}})` — pure dispatch, no LLM
 
-## What's next
+## Output
+```bash
+Q: What is 42 times 7?
+  → requested: {'tool': 'calculator', 'arguments': {'a': 42, 'b': 7, 'operation': 'multiply'}}
+  → result:    294
 
-Lesson 06 — The Agent Loop. String together everything so far (decide, request, execute) into a **loop with state**: observe → decide → act → repeat until done. That's what makes it an *agent* and not a chatbot.
+Q: Add 100 and 200.
+  → requested: {'tool': 'calculator', 'arguments': {'a': 100, 'b': 200, 'operation': 'add'}}
+  → result:    300
+
+Q: Subtract 50 from 1000.
+  → requested: {'tool': 'calculator', 'arguments': {'a': 1000, 'b': 50, 'operation': 'subtract'}}
+  → result:    950
+
+Q: Divide 144 by 12.
+  → requested: {'tool': 'calculator', 'arguments': {'a': 144, 'b': 12, 'operation': 'divide'}}
+  → result:    12.0
+
+Q: What's the capital of France?
+  → requested: {'tool': 'wikipedia', 'arguments': {'query': 'capital of France'}}
+  → tool error: Unknown tool: wikipedia
+```

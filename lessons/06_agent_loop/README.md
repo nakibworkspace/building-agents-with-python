@@ -60,6 +60,19 @@ run_loop(self, user_input, max_steps=5) -> list  # already written for you
 3. Inspect `agent.state.steps` and `agent.state.done` after a run — verify they're correct
 4. Ask a question that requires multiple actions ("Compare X and Y") — does the model plan or just answer?
 
-## What's next
+## Output
+```bash
+Goal: Help me understand how recursion works
 
-Lessons 07–10 add **memory** (what the agent remembers across turns), **planning** (decompose goals into steps), **atomic actions** (smallest executable units), and **AoT** (Atom of Thought dependency graphs). All of them are just **patterns on top of this loop**.
+Step 1: research
+   reason: to provide a clear explanation of recursion
+
+Step 2: research
+   reason: to provide a clear explanation of recursion
+
+Step 3: research
+   reason: to provide a clear explanation of recursion
+
+Total steps taken: 3
+Marked done?       False
+```

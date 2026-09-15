@@ -32,6 +32,14 @@ L01, L02 produced text. L03 produces **data**. Everything after this — decisio
 3. Run with a deliberately vague schema (`{"stuff": "..."}`) — does the model still produce useful output?
 4. Force a failure: ask for a number but request JSON with a list. Watch the retries.
 
-## What's next
+## Output
+```bash
+Got structured output:
+{'topic': 'quantum computing', 'difficulty': 'advanced'}
 
-Lesson 04 — Decision Making. Instead of asking the model to **generate** JSON, you constrain it to **select** from a list of choices. Selection is more reliable than generation.
+  topic:      quantum computing
+  difficulty: advanced
+
+--- Second call (should be similar) ---
+{'topic': 'quantum computing', 'difficulty': 'advanced'}
+```

@@ -31,6 +31,24 @@ One method. It does three things:
 3. Print `agent.memory.get_all()` after each turn — see what's being remembered.
 4. Clear memory mid-session: `agent.memory.clear()`. Does the agent forget?
 
-## What's next
+## Output
+```bash
+Turn 1: introduce yourself
+> Alice: Hi, my name is Alice and I'm a Python developer.
+   [saved: "User's name is Alice"]
+< Agent: Nice to meet you, Alice!
 
-Lesson 08 — Planning. Instead of one step at a time, the agent first generates a **plan** (ordered list of steps), then executes them. Plans are inspectable data, not hidden chain-of-thought.
+
+Memory after turn 1: ["User's name is Alice"]
+
+Turn 2: ask the agent to recall
+> Alice: What is my name?
+< Agent: User's name is Alice
+
+Turn 3: ask the agent to recall profession
+> Alice: What do I do for work?
+< Agent: That's a personal question, but I can tell you that many people work in various fields such as medicine, technology, education, and more. What specific field are you interested in?
+
+
+Final memory: ["User's name is Alice"]
+```
